@@ -28,8 +28,11 @@ Este cuatrimestre utilizamos la versión: *por definir* de NestJS
 - [Introducción Angular](https://angular.dev)
 - [Instalación](https://angular.dev/installation) 
 - [Componentes](https://angular.dev/guide/components) 
-- [Bindeo](https://angular.dev/guide/templates/binding) 
 - [Generar componentes](https://angular.dev/cli/generate/component)
+- [Bindeo](https://angular.dev/guide/templates/binding) 
+- [Ruteo](https://angular.dev/guide/routing/common-router-tasks)
+- [Navegación](https://angular.dev/guide/routing/router-tutorial)
+
 
 ### Instalación rápida
 
@@ -54,3 +57,18 @@ ng help
 1.  Which stylesheet system would you like to use? *CSS*
 2.  Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)? N
 3. IA: ya me rendí con esta
+
+## Clase 02 - Ruteo, componentes y variables - 20/08/2026
+
+- Ruteo complejo
+- Lazy Loading 
+- Ciclo de vida del componente
+- Tipos de bindeos
+- FormsModule
+
+### Documentación
+
+- [Hooks de Ciclo de vida](https://angular.dev/guide/components/lifecycle)
+- [Lazy loading](https://angular.dev/guide/routing/define-routes#lazily-loaded-components)
+- [Bindeo de eventos](https://angular.dev/guide/templates/event-listeners) 
+- [Bindeo bidireccional](https://angular.dev/guide/templates/two-way-binding)
