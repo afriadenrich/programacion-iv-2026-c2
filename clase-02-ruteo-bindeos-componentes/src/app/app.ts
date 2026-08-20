@@ -9,4 +9,12 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('clase-02-ruteo-bindeos-componentes');
+
+  ngOnInit() {
+    console.log('ON INIT APP COMPONENT');
+  }
+
+  ngOnDestroy() {
+    console.log('ON DESTROY APP COMPONENT'); // ES INUTIL. NUNCA SE DESTRUYE EL APP COMPONENT, para destruirlo hay que cerrar el navegador o la pestaña
+  }
 }
