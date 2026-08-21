@@ -1,1 +1,38 @@
-<p>tutoriales works!</p>
+<h1>Tutoriales</h1>
+<!-- Enlace de TEXTO o de variables. DESDE el TS al HTML -->
+<h2>
+  Contador es:
+  {{ contador() }}
+</h2>
+
+<!-- Enlace de FUNCIONES o EVENTOS. DESDE el TS al HTML -->
+<button (click)="contar()">Contar</button>
+
+<app-card />
+
+<!-- Enlace de ATRIBUTOS a través de variables. DESDE el TS al HTML-->
+<img [src]="imagen" width="50" />
+
+<br />
+
+<p>{{ nombre }}</p>
+
+<!-- Enlace bidireccional. Requiere el FormsModule-->
+<input [(ngModel)]="nombre" />
+
+<button (click)="reiniciar()">Reiniciar</button>
+
+<!-- cualquier comentario no se renderiza -->
+
+<!-- @if {}
+
+@for (item of items; track $index) {}
+
+@switch {
+  @case {}
+
+  @default {}
+} -->
+
+<!-- <p>&commat; asds</p>
+<p>&#64;@</p> -->
