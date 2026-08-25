@@ -1,0 +1,9 @@
+<div class="card">
+  <img [src]="cardInput()?.img" />
+  <div class="card-body">
+    <p>{{ cardInput()?.titulo }}</p>
+    <p>{{ cardInput()?.texto }}</p>
+
+    <a [href]="cardInput()?.link" target="_blank">{{ cardInput()?.textoLink }}</a>
+  </div>
+</div>

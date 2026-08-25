@@ -65,6 +65,7 @@ ng help
 - Ciclo de vida del componente
 - Tipos de bindeos
 - FormsModule
+- Signals
 
 ### Documentación
 
@@ -72,3 +73,23 @@ ng help
 - [Lazy loading](https://angular.dev/guide/routing/define-routes#lazily-loaded-components)
 - [Bindeo de eventos](https://angular.dev/guide/templates/event-listeners) 
 - [Bindeo bidireccional](https://angular.dev/guide/templates/two-way-binding)
+- [Signals](https://angular.dev/guide/signals)
+
+## Clase 03 - 25/08/2026
+
+### Temas
+
+- input
+- output
+- Servicios
+- HttpModule
+
+### Documentación
+
+- [Input](https://angular.dev/guide/components/inputs)
+- [Output](https://angular.dev/guide/components/outputs)
+- [Servicios injectables](https://angular.dev/guide/di/dependency-injection)
+- [Creación de servicios](https://angular.dev/guide/di/creating-injectable-service)
+- [HTTPCLient](https://angular.dev/guide/http)
+- [SetUp HTTPClient](https://angular.dev/guide/http/setup)
+- [Peticiones](https://angular.dev/guide/http/making-requests)

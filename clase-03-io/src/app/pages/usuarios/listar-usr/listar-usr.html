@@ -1,0 +1,4 @@
+@for (item of array(); track $index) {
+  <p>{{ item.nombre }}</p>
+  <button (click)="eliminar($index)">Eliminar</button>
+}

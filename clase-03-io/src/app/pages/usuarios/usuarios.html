@@ -1,0 +1,6 @@
+<section>
+  <app-crear-usr (onCrear)="agrear($event)" />
+</section>
+<section>
+  <app-listar-usr [array]="usuarios" (onEliminar)="eliminar($event)" />
+</section>

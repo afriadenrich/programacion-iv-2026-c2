@@ -1,0 +1,18 @@
+<h1>Tutoriales</h1>
+
+<p>
+  ¡Bienvenidos a los tutoriales de Angular! Estos tutoriales te guiarán por los conceptos básicos
+  del framework y te ayudarán a empezar a construir aplicaciones eficientes y escalables.
+</p>
+<!--https://angular.dev/api/core/@for#description-->
+
+<div style="display: flex">
+  @for (item of cards; track $index) {
+    <app-card [cardInput]="item"></app-card>
+  } @empty {
+    <p>el array está vacío</p>
+  }
+</div>
+<!-- 
+<button (click)="agregar()">Agregar</button>
+<button (click)="modificar()">Modificar</button> -->

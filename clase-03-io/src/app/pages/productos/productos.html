@@ -1,0 +1,13 @@
+<div>
+  <div class="borde">
+    <app-listar [productosInput]="array"></app-listar>
+  </div>
+</div>
+<div>
+  <div class="borde">
+    <app-crear (eventoCrearProducto)="recibirProductoCreado($event)"></app-crear>
+  </div>
+  <div class="borde">
+    <app-modificar></app-modificar>
+  </div>
+</div>
