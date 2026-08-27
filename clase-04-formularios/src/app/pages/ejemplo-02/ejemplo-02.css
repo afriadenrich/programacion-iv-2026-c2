@@ -1,3 +1,17 @@
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+form > div:nth-child(2) {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.formEl {
+  height: 50px;
+}
+
 small,
 span {
   color: #f00;
@@ -6,4 +20,10 @@ span {
 
 small {
   display: block;
+}
+
+@media (max-width: 550px) {
+  form {
+    display: block;
+  }
 }

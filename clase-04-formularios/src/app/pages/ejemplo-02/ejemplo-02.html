@@ -2,42 +2,47 @@
 
 <form [formGroup]="formulario" (ngSubmit)="enviar()">
   <div>
-    <label for="nombre">Nombre: </label>
-    <input id="nombre" formControlName="nombre" /><span> *</span>
+    <div class="formEl">
+      <label for="nombre">Nombre: </label>
+      <input id="nombre" formControlName="nombre" /><span> *</span>
+      @if (nombre?.touched) {
+        @if (nombre?.errors?.['required']) {
+          <small>El nombre es requerido</small>
+        }
 
-    @if (nombre?.errors?.['required'] && nombre.touched) {
-      <small>El nombre es requerido</small>
-    }
+        @if (nombre?.errors?.['minlength']) {
+          <small>El largo minimo es de {{ nombre?.errors?.['minlength'].requiredLength }}</small>
+        }
+      }
+    </div>
+    <div class="formEl">
+      <label for="apellido">Apellido: </label>
+      <input id="apellido" formControlName="apellido" />
+      @if (apellido?.touched) {
+        @if (apellido?.errors?.['required']) {
+          <small>El apellido es requerido</small>
+        }
 
-    @if (nombre?.errors?.['minlength'] && nombre.touched) {
-      <small>El largo minimo es de {{ nombre?.errors?.['minlength'].requiredLength }}</small>
-    }
-  </div>
-  <div>
-    <label for="apellido">Apellido: </label>
-    <input id="apellido" formControlName="apellido" />
-
-    @if (apellido?.errors?.['required'] && apellido.touched) {
-      <small>El apellido es requerido</small>
-    }
-
-    @if (apellido?.errors?.['minlength'] && apellido.touched) {
-      <small>El largo minimo es de {{ apellido?.errors?.['minlength'].requiredLength }}</small>
-    }
-  </div>
-  <div>
-    <label for="email">Email: </label>
-    <input id="email" formControlName="email" />
-
-    @if (email?.errors?.['required'] && email.touched) {
-      <small>El email es requerido</small>
-    }
-    @if (email?.errors?.['email'] && email.touched) {
-      <small>El email no es válido</small>
-    }
+        @if (apellido?.errors?.['minlength']) {
+          <small>El largo minimo es de {{ apellido?.errors?.['minlength'].requiredLength }}</small>
+        }
+      }
+    </div>
+    <div class="formEl">
+      <label for="email">Email: </label>
+      <input id="email" formControlName="email" />
+      @if (email?.touched) {
+        @if (email?.errors?.['required']) {
+          <small>El email es requerido</small>
+        }
+        @if (email?.errors?.['email']) {
+          <small>El email no es válido</small>
+        }
+      }
+    </div>
   </div>
   <div id="direccion" formGroupName="direccion">
-    <div>
+    <div class="formEl">
       <label for="calle">Calle: </label>
       <input id="calle" formControlName="calle" />
 
@@ -45,73 +50,80 @@
         <small>El calle es requerido</small>
       }
     </div>
-    <div>
+    <div class="formEl">
       <label for="numero-calle">Numero: </label>
       <input id="numero-calle" formControlName="numero" ] />
 
-      @if (numeroDir?.errors?.['required'] && numeroDir.touched) {
-        <small>El numero es requerido</small>
-      }
-      @if (numeroDir?.errors?.['pattern'] && numeroDir.touched) {
-        <small>El numero no es un número</small>
-      }
-      @if (numeroDir?.errors?.['max'] && numeroDir.touched) {
-        <small>El numero es muy largo</small>
+      @if (numeroDir?.touched) {
+        @if (numeroDir?.errors?.['required']) {
+          <small>El numero es requerido</small>
+        }
+        @if (numeroDir?.errors?.['pattern']) {
+          <small>El numero no es un número</small>
+        }
+        @if (numeroDir?.errors?.['max']) {
+          <small>El numero es muy largo</small>
+        }
       }
     </div>
   </div>
   <div id="tarjeta" formGroupName="tarjeta">
-    <div>
+    <div class="formEl">
       <label for="numero-tarjeta">Numero: </label>
       <input id="numero-tarjeta" formControlName="numero" ] />
-
-      @if (numeroTar?.errors?.['required'] && numeroTar.touched) {
-        <small>El numero es requerido</small>
-      }
-      @if (numeroTar?.errors?.['pattern'] && numeroTar.touched) {
-        <small>El numero no es un número</small>
-      }
-      @if (numeroTar?.errors?.['largoExacto'] && numeroTar.touched) {
-        <small>Largo de caracteres incorrecto</small>
+      @if (numeroTar?.touched) {
+        @if (numeroTar?.errors?.['required']) {
+          <small>El numero es requerido</small>
+        }
+        @if (numeroTar?.errors?.['pattern']) {
+          <small>El numero no es un número</small>
+        }
+        @if (numeroTar?.errors?.['largoExacto']) {
+          <small>Largo de caracteres incorrecto</small>
+        }
       }
     </div>
-    <div>
+    <div class="formEl">
       <label for="vencimientoMes">mes: </label>
       <input id="vencimientoMes" formControlName="vencimientoMes" ] />
-
-      @if (vencMes?.errors?.['pattern'] && vencMes.touched) {
-        <small>El vencimiento no es un número</small>
-      }
-      @if ((vencMes?.errors?.['min'] || vencMes?.errors?.['max']) && vencMes.touched) {
-        <small>Ingrese un mes válido</small>
+      @if (vencMes?.touched) {
+        @if (vencMes?.errors?.['pattern']) {
+          <small>El vencimiento no es un número</small>
+        }
+        @if (vencMes?.errors?.['min'] || vencMes?.errors?.['max']) {
+          <small>Ingrese un mes válido</small>
+        }
       }
     </div>
-    <div>
+    <div class="formEl">
       <label for="vencimientoAnio">anio: </label>
       <input id="vencimientoAnio" formControlName="vencimientoAnio" ] />
-
-      @if (vencAnio?.errors?.['pattern'] && vencAnio.touched) {
-        <small>El vencimiento no es un número</small>
-      }
-      @if ((vencAnio?.errors?.['min'] || vencAnio?.errors?.['max']) && vencAnio.touched) {
-        <small>Ingrese un año válido</small>
+      @if (vencAnio?.touched) {
+        @if (vencAnio?.errors?.['pattern']) {
+          <small>El vencimiento no es un número</small>
+        }
+        @if (vencAnio?.errors?.['min'] || vencAnio?.errors?.['max']) {
+          <small>Ingrese un año válido</small>
+        }
       }
     </div>
-    <div>
+    <div class="formEl">
       <label for="codigo">Codigo: </label>
       <input id="codigo" formControlName="codigo" ] />
-
-      @if (codigo?.errors?.['pattern'] && codigo.touched) {
-        <small>El codigo no es un número</small>
-      }
-      @if (codigo?.errors?.['largoExacto'] && codigo.touched) {
-        <small>Largo de caracteres incorrecto</small>
-      }
-      @if (codigo?.errors?.['min'] && codigo.touched) {
-        <small>Número muy pequeño</small>
+      @if (codigo?.touched) {
+        @if (codigo?.errors?.['pattern']) {
+          <small>El codigo no es un número</small>
+        }
+        @if (codigo?.errors?.['largoExacto']) {
+          <small>Largo de caracteres incorrecto</small>
+        }
+        @if (codigo?.errors?.['min']) {
+          <small>Número muy pequeño</small>
+        }
       }
     </div>
   </div>
-
-  <button type="submit">Enviar</button>
+  <div>
+    <button type="submit">Enviar</button>
+  </div>
 </form>
