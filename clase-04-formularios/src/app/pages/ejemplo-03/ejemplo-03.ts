@@ -11,11 +11,11 @@ import {
 
 @Component({
   imports: [ReactiveFormsModule],
-  selector: 'app-ejemplo-02',
-  styleUrl: './ejemplo-02.css',
-  templateUrl: './ejemplo-02.html',
+  selector: 'app-ejemplo-03',
+  styleUrl: './ejemplo-03.css',
+  templateUrl: './ejemplo-03.html',
 })
-export class Ejemplo02 {
+export class Ejemplo03 {
   formBuilder = inject(FormBuilder);
 
   formulario = this.formBuilder.group({
