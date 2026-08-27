@@ -1,0 +1,15 @@
+<h2>Buscador de personajes de AOT</h2>
+<p>Ingrese el nombre del personaje</p>
+<input type="text" [(ngModel)]="nombre">
+<button (click)="buscarPersonaje()">Buscar</button>
+
+@if(mensaje()){
+<p>{{mensaje()}}</p>
+}
+
+@if(personaje(); as p){
+<h2>{{p.name}}</h2>
+<img [src]="p.img" alt="" style="width: 150px;">
+}
+
+<app-perfil></app-perfil>

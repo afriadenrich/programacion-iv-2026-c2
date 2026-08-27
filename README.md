@@ -93,3 +93,18 @@ ng help
 - [HTTPCLient](https://angular.dev/guide/http)
 - [SetUp HTTPClient](https://angular.dev/guide/http/setup)
 - [Peticiones](https://angular.dev/guide/http/making-requests)
+
+## Clase 04 - 27/08/2026
+
+### Temas
+
+- Formularios
+- Validaciones
+- Validaciones propias
+
+### Documentación
+
+- [Formularios](https://angular.dev/guide/forms)
+- [Formularios Reactivos](https://angular.dev/guide/forms)
+- [Validaciones](https://angular.dev/guide/forms/signals/validation)
+- [Validaciones propias](https://angular.dev/guide/forms/signals/validation#custom-validation-rules)

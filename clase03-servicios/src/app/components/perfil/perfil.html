@@ -1,0 +1,6 @@
+<h2>Perfil de github</h2>
+@if(usuario(); as u){
+<h2>{{u.login}}</h2>
+<img [src]="u.avatar_url" alt="" style="width: 150px;">
+<p>{{u.bio}}</p>
+}
