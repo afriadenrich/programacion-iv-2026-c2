@@ -1,0 +1,55 @@
+<h1>Formularios</h1>
+
+<form [formGroup]="formulario" (ngSubmit)="enviar()">
+  <div>
+    <label for="nombre">Nombre: </label>
+    <input id="nombre" formControlName="nombre" />
+  </div>
+  <div>
+    <label for="apellido">Apellido: </label>
+    <input id="apellido" formControlName="apellido" />
+  </div>
+  <div>
+    <label for="email">Email: </label>
+    <input id="email" formControlName="email" />
+  </div>
+  <div id="direccion" formGroupName="direccion">
+    <div>
+      <label for="calle">Calle: </label>
+      <input id="calle" formControlName="calle" />
+    </div>
+    <div>
+      <label for="numero-calle">Numero: </label>
+      <input id="numero-calle" formControlName="numero" type="number" />
+    </div>
+  </div>
+  <div id="tarjeta" formGroupName="tarjeta">
+    <div>
+      <label for="numero-tarjeta">Numero: </label>
+      <input id="numero-tarjeta" formControlName="numero" type="number" />
+    </div>
+    <div>
+      <label for="vencimientoMes">mes: </label>
+      <input id="vencimientoMes" formControlName="vencimientoMes" type="number" />
+    </div>
+    <div>
+      <label for="vencimientoAnio">anio: </label>
+      <input id="vencimientoAnio" formControlName="vencimientoAnio" type="number" />
+    </div>
+    <div>
+      <label for="codigo">Codigo: </label>
+      <input id="codigo" formControlName="codigo" type="number" />
+    </div>
+  </div>
+
+  <button type="submit">Enviar</button>
+</form>
+
+<!-- <label for="nombre">Nombre: </label>
+<input id="nombre" [formControl]="nombre" />
+{{ nombre.value }}
+<br />
+<br />
+<label for="nombre2">Nombre 2: </label>
+<input id="nombre2" [(ngModel)]="nombre2" />
+{{ nombre2 }} -->

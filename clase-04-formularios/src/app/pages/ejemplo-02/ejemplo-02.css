@@ -1,0 +1,9 @@
+small,
+span {
+  color: #f00;
+  font-weight: 600;
+}
+
+small {
+  display: block;
+}
