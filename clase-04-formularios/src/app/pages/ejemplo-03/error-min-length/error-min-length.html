@@ -1,0 +1,3 @@
+@if (errors()?.['minlength']) {
+  <p>{{ mensaje() || 'El largo mínimo es de' + errors()?.['minlength'].requiredLength }}</p>
+}

@@ -1,0 +1,12 @@
+<form [formArray]="formulario">
+  @for (item of formulario.controls; track $index; let i = $index) {
+    <div>
+      <label for="alias-{{ i }}">URLs:</label>
+      <input id="alias-{{ i }}" type="text" [formControlName]="i" />
+    </div>
+  }
+</form>
+
+<button (click)="agregar()">Agregar</button>
+<button (click)="quitar()">Quitar</button>
+<button (click)="mostrar()">Mostrar</button>

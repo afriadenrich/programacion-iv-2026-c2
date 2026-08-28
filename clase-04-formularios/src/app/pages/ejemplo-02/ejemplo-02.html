@@ -47,7 +47,7 @@
       <input id="calle" formControlName="calle" />
 
       @if (calle?.errors?.['required'] && calle.touched) {
-        <small>El calle es requerido</small>
+        <small>La calle es requerido</small>
       }
     </div>
     <div class="formEl">
@@ -88,7 +88,7 @@
       <input id="vencimientoMes" formControlName="vencimientoMes" ] />
       @if (vencMes?.touched) {
         @if (vencMes?.errors?.['pattern']) {
-          <small>El vencimiento no es un número</small>
+          <small>El mes no es un número</small>
         }
         @if (vencMes?.errors?.['min'] || vencMes?.errors?.['max']) {
           <small>Ingrese un mes válido</small>

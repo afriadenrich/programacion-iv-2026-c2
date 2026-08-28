@@ -1,117 +1,61 @@
-<h2>Ejemplo 03</h2>
+<h2>Ejemplo 02</h2>
 
 <form [formGroup]="formulario" (ngSubmit)="enviar()">
   <div>
-    <label for="nombre">Nombre: </label>
-    <input id="nombre" formControlName="nombre" /><span> *</span>
+    <app-campo-input id="nombre" [control]="formulario.controls.nombre" label="Nombre">
+      <app-error-required [errors]="formulario.controls.nombre.errors"></app-error-required>
+      <app-error-min-length [errors]="formulario.controls.nombre.errors"></app-error-min-length>
+    </app-campo-input>
 
-    @if (nombre?.errors?.['required'] && nombre.touched) {
-      <small>El nombre es requerido</small>
-    }
+    <app-campo-input id="apellido" [control]="formulario.controls.apellido" label="Apellido">
+    </app-campo-input>
 
-    @if (nombre?.errors?.['minlength'] && nombre.touched) {
-      <small>El largo minimo es de {{ nombre?.errors?.['minlength'].requiredLength }}</small>
-    }
-  </div>
-  <div>
-    <label for="apellido">Apellido: </label>
-    <input id="apellido" formControlName="apellido" />
-
-    @if (apellido?.errors?.['required'] && apellido.touched) {
-      <small>El apellido es requerido</small>
-    }
-
-    @if (apellido?.errors?.['minlength'] && apellido.touched) {
-      <small>El largo minimo es de {{ apellido?.errors?.['minlength'].requiredLength }}</small>
-    }
-  </div>
-  <div>
-    <label for="email">Email: </label>
-    <input id="email" formControlName="email" />
-
-    @if (email?.errors?.['required'] && email.touched) {
-      <small>El email es requerido</small>
-    }
-    @if (email?.errors?.['email'] && email.touched) {
-      <small>El email no es válido</small>
-    }
+    <app-campo-input
+      id="email"
+      [control]="formulario.controls.email"
+      label="Email"
+    ></app-campo-input>
   </div>
   <div id="direccion" formGroupName="direccion">
-    <div>
-      <label for="calle">Calle: </label>
-      <input id="calle" formControlName="calle" />
+    <app-campo-input
+      id="calle"
+      [control]="formulario.controls.direccion.controls.calle"
+      label="Calle"
+    ></app-campo-input>
 
-      @if (calle?.errors?.['required'] && calle.touched) {
-        <small>El calle es requerido</small>
-      }
-    </div>
-    <div>
-      <label for="numero-calle">Numero: </label>
-      <input id="numero-calle" formControlName="numero" ] />
-
-      @if (numeroDir?.errors?.['required'] && numeroDir.touched) {
-        <small>El numero es requerido</small>
-      }
-      @if (numeroDir?.errors?.['pattern'] && numeroDir.touched) {
-        <small>El numero no es un número</small>
-      }
-      @if (numeroDir?.errors?.['max'] && numeroDir.touched) {
-        <small>El numero es muy largo</small>
-      }
-    </div>
+    <app-campo-input
+      id="numeroDir"
+      [control]="formulario.controls.direccion.controls.numero"
+      label="Numero"
+    ></app-campo-input>
   </div>
   <div id="tarjeta" formGroupName="tarjeta">
-    <div>
-      <label for="numero-tarjeta">Numero: </label>
-      <input id="numero-tarjeta" formControlName="numero" ] />
+    <h3>Tarjeta:</h3>
+    <app-campo-input
+      id="numeroTar"
+      [control]="formulario.controls.tarjeta.controls.numero"
+      label="Numero"
+    ></app-campo-input>
 
-      @if (numeroTar?.errors?.['required'] && numeroTar.touched) {
-        <small>El numero es requerido</small>
-      }
-      @if (numeroTar?.errors?.['pattern'] && numeroTar.touched) {
-        <small>El numero no es un número</small>
-      }
-      @if (numeroTar?.errors?.['largoExacto'] && numeroTar.touched) {
-        <small>Largo de caracteres incorrecto</small>
-      }
-    </div>
-    <div>
-      <label for="vencimientoMes">mes: </label>
-      <input id="vencimientoMes" formControlName="vencimientoMes" ] />
+    <app-campo-input
+      id="vencimientoMes"
+      [control]="formulario.controls.tarjeta.controls.vencimientoMes"
+      label="Mes"
+    ></app-campo-input>
 
-      @if (vencMes?.errors?.['pattern'] && vencMes.touched) {
-        <small>El vencimiento no es un número</small>
-      }
-      @if ((vencMes?.errors?.['min'] || vencMes?.errors?.['max']) && vencMes.touched) {
-        <small>Ingrese un mes válido</small>
-      }
-    </div>
-    <div>
-      <label for="vencimientoAnio">anio: </label>
-      <input id="vencimientoAnio" formControlName="vencimientoAnio" ] />
+    <app-campo-input
+      id="vencimientoAnio"
+      [control]="formulario.controls.tarjeta.controls.vencimientoAnio"
+      label="Anio"
+    ></app-campo-input>
 
-      @if (vencAnio?.errors?.['pattern'] && vencAnio.touched) {
-        <small>El vencimiento no es un número</small>
-      }
-      @if ((vencAnio?.errors?.['min'] || vencAnio?.errors?.['max']) && vencAnio.touched) {
-        <small>Ingrese un año válido</small>
-      }
-    </div>
-    <div>
-      <label for="codigo">Codigo: </label>
-      <input id="codigo" formControlName="codigo" ] />
-
-      @if (codigo?.errors?.['pattern'] && codigo.touched) {
-        <small>El codigo no es un número</small>
-      }
-      @if (codigo?.errors?.['largoExacto'] && codigo.touched) {
-        <small>Largo de caracteres incorrecto</small>
-      }
-      @if (codigo?.errors?.['min'] && codigo.touched) {
-        <small>Número muy pequeño</small>
-      }
-    </div>
+    <app-campo-input
+      id="codigo"
+      [control]="formulario.controls.tarjeta.controls.codigo"
+      label="Código"
+    ></app-campo-input>
   </div>
-
-  <button type="submit">Enviar</button>
+  <div>
+    <button type="submit">Enviar</button>
+  </div>
 </form>

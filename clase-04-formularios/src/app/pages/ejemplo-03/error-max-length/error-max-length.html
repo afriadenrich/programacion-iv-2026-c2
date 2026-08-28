@@ -1,0 +1,3 @@
+@if (errors()?.['maxlength']) {
+  <p>{{ mensaje() || 'El largo máximo es de' + errors()?.['maxlength'].requiredLength }}</p>
+}

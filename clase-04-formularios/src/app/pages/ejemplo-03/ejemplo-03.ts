@@ -3,14 +3,16 @@ import {
   AbstractControl,
   FormBuilder,
   FormControl,
-  FormGroup,
   ReactiveFormsModule,
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { CampoInput } from './campo-input/campo-input';
+import { ErrorRequired } from './error-required/error-required';
+import { ErrorMinLength } from './error-min-length/error-min-length';
 
 @Component({
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CampoInput, ErrorRequired, ErrorMinLength],
   selector: 'app-ejemplo-03',
   styleUrl: './ejemplo-03.css',
   templateUrl: './ejemplo-03.html',
@@ -46,41 +48,6 @@ export class Ejemplo03 {
     }),
   });
 
-  // getters
-  get nombre() {
-    return this.formulario.get('nombre');
-  }
-  get apellido() {
-    return this.formulario.get('apellido');
-  }
-  get email() {
-    return this.formulario.get('email');
-  }
-  get direccion() {
-    return this.formulario.get('direccion');
-  }
-  get calle() {
-    return this.direccion?.get('calle');
-  }
-  get numeroDir() {
-    return this.direccion?.get('numero');
-  }
-  get tarjeta() {
-    return this.formulario.get('tarjeta');
-  }
-  get numeroTar() {
-    return this.tarjeta?.get('numero');
-  }
-  get vencMes() {
-    return this.tarjeta?.get('vencimientoMes');
-  }
-  get vencAnio() {
-    return this.tarjeta?.get('vencimientoAnio');
-  }
-  get codigo() {
-    return this.tarjeta?.get('codigo');
-  }
-
   // funciones
   enviar() {
     console.log(this.formulario, this.formulario.valid);
@@ -90,7 +57,7 @@ export class Ejemplo03 {
     return (control: AbstractControl) => {
       return control.value !== null && String(control.value).length === caracteres
         ? null
-        : { largoExacto: true };
+        : { largoExacto: caracteres };
     };
   }
 }
