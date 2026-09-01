@@ -58,7 +58,9 @@ ng help
 2.  Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)? N
 3. IA: ya me rendí con esta
 
-## Clase 02 - Ruteo, componentes y variables - 20/08/2026
+## Clase 02 - 20/08/2026
+
+### Temas
 
 - Ruteo complejo
 - Lazy Loading 
@@ -108,3 +110,16 @@ ng help
 - [Formularios Reactivos](https://angular.dev/guide/forms)
 - [Validaciones](https://angular.dev/guide/forms/signals/validation)
 - [Validaciones propias](https://angular.dev/guide/forms/signals/validation#custom-validation-rules)
+
+## Clase 05 - 01/09/2026
+
+### Temas
+
+- Supabase
+- Auth
+
+### Documentación
+
+- [Supabase](https://supabase.com)
+- [Supabase Docs](https://supabase.com/docs)
+- [Supabase Auth](https://supabase.com/docs/guides/auth)

@@ -1,0 +1,9 @@
+<nav>
+  <button routerLink="home">Home</button>
+  <button routerLink="auth/login">Login</button>
+  <button routerLink="auth/register">Register</button>
+  <button (click)="cerrar()">Cerrrar sesion</button>
+
+  <p>Usuario Actual: {{ authS.usuarioActual()?.user_metadata['nombre'] }}</p>
+</nav>
+<router-outlet />
