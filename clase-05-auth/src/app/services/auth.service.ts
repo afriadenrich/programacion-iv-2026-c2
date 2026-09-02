@@ -1,7 +1,7 @@
 import { inject, Service, signal, WritableSignal } from '@angular/core';
 import IUsuario from '../interfaces/Usuario';
 import { Supabase } from './supabase.service';
-import { User } from '@supabase/supabase-js';
+import { Session, User } from '@supabase/supabase-js';
 import { Router } from '@angular/router';
 
 @Service()
@@ -12,8 +12,22 @@ export class Auth {
   public usuarioActual: WritableSignal<User | null> = signal<User | null>(null);
 
   constructor() {
-    this.supabaseS.Supabase.auth.getSession().then((data) => {
-      this.usuarioActual.set(data.data.session?.user || null);
+    // this.supabaseS.Supabase.auth.getSession().then((data) => {
+    //   this.usuarioActual.set(data.data.session?.user || null);
+    // });
+
+    // cada vez que entro a la app o
+    // me registro o
+    // me logueo o
+    // cierro sesion etc
+    this.supabaseS.Supabase.auth.onAuthStateChange((event, session) => {
+      if (session?.user) {
+        this.usuarioActual.set(session.user);
+        this.routerS.navigateByUrl('/home');
+      } else {
+        this.usuarioActual.set(null);
+        this.routerS.navigateByUrl('/auth/login');
+      }
     });
   }
 
