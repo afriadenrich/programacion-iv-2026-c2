@@ -2,10 +2,13 @@ import { inject, Service, signal, WritableSignal } from '@angular/core';
 import IUsuario from '../interfaces/Usuario';
 import { Supabase } from './supabase.service';
 import { User } from '@supabase/supabase-js';
+import { Router } from '@angular/router';
 
 @Service()
 export class Auth {
   private supabaseS = inject(Supabase);
+  private routerS = inject(Router);
+
   public usuarioActual: WritableSignal<User | null> = signal<User | null>(null);
 
   constructor() {
@@ -30,9 +33,10 @@ export class Auth {
 
     console.log(respuesta);
 
-    if (!respuesta.error && respuesta.data) {
-      this.usuarioActual.set(respuesta.data.user);
-    }
+    // if (!respuesta.error && respuesta.data) {
+    //   this.usuarioActual.set(respuesta.data.user);
+    //   this.routerS.navigateByUrl('/home');
+    // }
   }
 
   async loguear(usuario: IUsuario) {
@@ -43,14 +47,16 @@ export class Auth {
 
     console.log(data, error);
 
-    if (!error && data) {
-      this.usuarioActual.set(data.user);
-    }
+    // if (!error && data) {
+    //   this.usuarioActual.set(data.user);
+    //   this.routerS.navigateByUrl('/home');
+    // }
   }
 
   async cerrarSesion() {
     const { error } = await this.supabaseS.Supabase.auth.signOut();
 
-    this.usuarioActual.set(null);
+    // this.usuarioActual.set(null);
+    // this.routerS.navigateByUrl('/auth/login');
   }
 }
