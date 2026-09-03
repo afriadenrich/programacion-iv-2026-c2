@@ -38,6 +38,7 @@ export class Auth {
       options: {
         data: {
           nombre: usuario.nombre,
+          // rol: 'admin',
           //   fechaDeNacimiento,
           //   nombreDeLaMascota,
           //   etc

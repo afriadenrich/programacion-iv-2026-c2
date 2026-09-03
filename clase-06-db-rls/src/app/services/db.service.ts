@@ -35,6 +35,7 @@ export class DbService {
   }
 
   async delete(id: number) {
-    const { data, error } = await this.tablaAutos.delete().eq('id', id);
+    const { data, error, count } = await this.tablaAutos.delete().eq('id', id);
+    console.log(data, error, count);
   }
 }

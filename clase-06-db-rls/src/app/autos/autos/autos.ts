@@ -48,6 +48,7 @@ export class Autos {
         if (val.id) this.autoEncontrado.set(await this.db.findById(val.id));
         break;
       case 'crear':
+        delete val.id;
         await this.db.create(val as AutoPorCrear);
         this.traerTodos();
         break;
