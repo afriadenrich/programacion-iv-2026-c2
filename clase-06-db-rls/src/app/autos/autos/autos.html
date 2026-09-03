@@ -1,0 +1,36 @@
+<nav class="acciones">
+  <button (click)="setAccion('listar')">Listar</button>
+  <button (click)="setAccion('buscar')">Buscar</button>
+  <button (click)="setAccion('crear')">Crear</button>
+  <button (click)="setAccion('modificar')">Modificar</button>
+  <button (click)="setAccion('eliminar')">Eliminar</button>
+</nav>
+
+<hr />
+
+@if (accionActual() === 'listar') {
+  <h2>Listado de Autos</h2>
+  @for (auto of autos(); track auto.id) {
+    <p>{{ auto.id }} - {{ auto.marca }} {{ auto.modelo }} | ${{ auto.precio }}</p>
+  }
+} @else {
+  <h2>{{ accionActual() }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="ejecutarAccion()">
+    @if (['buscar', 'modificar', 'eliminar'].includes(accionActual())) {
+      <input formControlName="id" placeholder="ID" type="number" required />
+    }
+
+    @if (['crear', 'modificar'].includes(accionActual())) {
+      <input formControlName="marca" placeholder="Marca" />
+      <input formControlName="modelo" placeholder="Modelo" />
+      <input formControlName="precio" placeholder="Precio" type="number" />
+    }
+
+    <button type="submit">{{ accionActual() }}</button>
+  </form>
+
+  @if (accionActual() === 'buscar' && autoEncontrado(); as auto) {
+    <p>Encontrado: {{ auto.id }} - {{ auto.marca }} {{ auto.modelo }} | ${{ auto.precio }}</p>
+  }
+}

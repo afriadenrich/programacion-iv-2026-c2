@@ -1,13 +1,19 @@
-<nav>
-  @if (authS.usuarioActual()) {
-    <button routerLink="home">Home</button>
-    <button (click)="cerrar()">Cerrar sesion</button>
-  } @else {
-    <button routerLink="auth/login">Login</button>
-    <button routerLink="auth/register">Register</button>
-  }
+<header>
+  <nav>
+    @if (authS.usuarioActual()) {
+      <button routerLink="home">Home</button>
+      <button (click)="cerrar()">Cerrar sesion</button>
+    } @else {
+      <button routerLink="auth/login">Login</button>
+      <button routerLink="auth/register">Register</button>
+    }
 
-  <p>Usuario Actual: {{ authS.usuarioActual()?.user_metadata['nombre'] }}</p>
-</nav>
+    <p>Usuario Actual: {{ authS.usuarioActual()?.user_metadata['nombre'] }}</p>
+  </nav>
+  <hr />
+  <router-outlet />
+</header>
+
 <hr />
-<router-outlet />
+
+<app-autos></app-autos>
