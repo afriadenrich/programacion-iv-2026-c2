@@ -1,0 +1,54 @@
+<h1>Traer todos</h1>
+<button (click)="traer()">Traer</button>
+
+@for (auto of autos(); track $index) {
+  <p>{{ auto.id }} {{ auto.created_at }} {{ auto.modelo }} {{ auto.marca }} ${{ auto.precio }}</p>
+}
+
+<h1>Traer por id</h1>
+<form [formGroup]="formTraerId" (ngSubmit)="traerPorId()">
+  <div>
+    <input formControlName="id" placeholder="id" type="number" />
+  </div>
+  <button type="submit">Traer por id</button>
+</form>
+
+<h1>Crear</h1>
+<form [formGroup]="formCrear" (ngSubmit)="crear()">
+  <div>
+    <input formControlName="marca" placeholder="marca" />
+  </div>
+  <div>
+    <input formControlName="modelo" placeholder="modelo" />
+  </div>
+  <div>
+    <input formControlName="precio" placeholder="precio" type="number" />
+  </div>
+
+  <button type="submit">Crear</button>
+</form>
+<h1>Modificar</h1>
+<form [formGroup]="formModificar" (ngSubmit)="update()">
+  <div>
+    <input formControlName="id" placeholder="id" type="number" />
+  </div>
+  <div>
+    <input formControlName="marca" placeholder="marca" />
+  </div>
+  <div>
+    <input formControlName="modelo" placeholder="modelo" />
+  </div>
+  <div>
+    <input formControlName="precio" placeholder="precio" type="number" />
+  </div>
+
+  <button type="submit">Crear</button>
+</form>
+<h1>Eliminar</h1>
+<form [formGroup]="formEliminar" (ngSubmit)="eliminar()">
+  <div>
+    <input formControlName="id" placeholder="id" type="number" />
+  </div>
+
+  <button type="submit">Eliminar</button>
+</form>

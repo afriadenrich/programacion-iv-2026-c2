@@ -123,3 +123,19 @@ ng help
 - [Supabase](https://supabase.com)
 - [Supabase Docs](https://supabase.com/docs)
 - [Supabase Auth](https://supabase.com/docs/guides/auth)
+
+## Clase 06 - 03/09/2026
+
+### Temas
+
+- Supabase
+- Database
+- RLS
+
+### Documentación
+
+- [Supabase](https://supabase.com)
+- [Supabase Docs](https://supabase.com/docs)
+- [Supabase Database](https://supabase.com/docs/guides/database/overview)
+- [Row Level Security](https://supabase.com/docs/guides/database/postgres/row-level-security)
+

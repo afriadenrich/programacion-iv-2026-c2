@@ -1,0 +1,9 @@
+<form [formGroup]="formulario" (ngSubmit)="accion()">
+  <div>
+    <input type="email" name="email" formControlName="email" placeholder="email" />
+  </div>
+  <div>
+    <input type="password" name="password" formControlName="password" placeholder="password" />
+  </div>
+  <button [disabled]="!formulario.valid">Loguearse</button>
+</form>
