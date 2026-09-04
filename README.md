@@ -137,5 +137,8 @@ ng help
 - [Supabase](https://supabase.com)
 - [Supabase Docs](https://supabase.com/docs)
 - [Supabase Database](https://supabase.com/docs/guides/database/overview)
+- [Supabase DB JAVASCRIPT](https://supabase.com/docs/reference/javascript/select)
 - [Row Level Security](https://supabase.com/docs/guides/database/postgres/row-level-security)
+- [Realtime](https://supabase.com/docs/guides/realtime/postgres-changes?queryGroups=language&language=js#quick-start)
+
 
