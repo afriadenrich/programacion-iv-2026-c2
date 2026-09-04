@@ -1,4 +1,19 @@
-<h1>Traer todos</h1>
+<h4>Crear</h4>
+<form [formGroup]="formCrear" (ngSubmit)="crear()">
+  <div>
+    <input formControlName="marca" placeholder="marca" />
+  </div>
+  <div>
+    <input formControlName="modelo" placeholder="modelo" />
+  </div>
+  <div>
+    <input formControlName="precio" placeholder="precio" type="number" />
+  </div>
+
+  <button type="submit">Crear</button>
+</form>
+
+<h4>Traer todos</h4>
 <button (click)="traer()">Traer</button>
 
 @for (auto of autos(); track $index) {
@@ -13,20 +28,6 @@
   <button type="submit">Traer por id</button>
 </form>
 
-<h1>Crear</h1>
-<form [formGroup]="formCrear" (ngSubmit)="crear()">
-  <div>
-    <input formControlName="marca" placeholder="marca" />
-  </div>
-  <div>
-    <input formControlName="modelo" placeholder="modelo" />
-  </div>
-  <div>
-    <input formControlName="precio" placeholder="precio" type="number" />
-  </div>
-
-  <button type="submit">Crear</button>
-</form>
 <h1>Modificar</h1>
 <form [formGroup]="formModificar" (ngSubmit)="update()">
   <div>
