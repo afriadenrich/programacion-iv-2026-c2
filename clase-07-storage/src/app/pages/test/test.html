@@ -1,0 +1,14 @@
+<form [formGroup]="formulario" (submit)="enviar()">
+  <h2>Test</h2>
+  <div>
+    <label for="ruta">Ruta</label>
+    <input type="email" name="ruta" id="ruta" formControlName="ruta" />
+  </div>
+  <div>
+    <label for="foto-perfil">Foto</label>
+    <input type="file" accept="image/png" id="foto-perfil" (input)="cargarImagen($event)" />
+  </div>
+
+  <button type="submit">Registrarse</button>
+  <p style="color: #f00">{{ error() }}</p>
+</form>

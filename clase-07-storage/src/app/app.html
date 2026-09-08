@@ -1,0 +1,15 @@
+<h1>Clase 07</h1>
+
+<nav>
+  <button routerLink="test">Test</button>
+  @if (auth.usuarioActual()) {
+    <button routerLink="home">Home</button>
+    <button routerLink="perfil">Perfil</button>
+    <button (click)="auth.cerrarSesion()">Cerrar sesión</button>
+  } @else {
+    <button routerLink="registro">Registro</button>
+    <button routerLink="login">Iniciar sesión</button>
+  }
+</nav>
+
+<router-outlet />
