@@ -1,0 +1,14 @@
+.card {
+  display: flex;
+  align-items: center;
+}
+
+.card > p {
+  margin-left: 5px;
+}
+
+img {
+  width: 30px;
+  border: solid 1px #000;
+  border-radius: 50%;
+}

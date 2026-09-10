@@ -1,4 +1,12 @@
 <div class="card">
-  <img [src]="authS.usuarioActual()?.user_metadata['foto']" />
-  <h1>{{ authS.usuarioActual()?.email }}</h1>
+  <img [src]="`${rutaBase}${authS.usuarioActual()?.user_metadata['foto']}`" />
+  <p>{{ authS.usuarioActual()?.email }}</p>
+  <p>{{ authS.usuarioActual()?.user_metadata['nombre'] }}</p>
+  <img [src]="`${rutaBase}${authS.usuarioActual()?.user_metadata['foto_portada']}`" />
+
+  <form [formGroup]="formulario" (submit)="accion()">
+    <input formControlName="nombre" />
+    <input type="file" (input)="cargarImagen($event)" />
+    <button type="submit">Actualizar</button>
+  </form>
 </div>

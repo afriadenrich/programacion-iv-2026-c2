@@ -29,12 +29,14 @@ export class Test {
   async enviar() {
     console.log(this.formulario.value);
     if (this.formulario.valid) {
-      const { data, error } = await this.storage.subirArchivo(
-        this.formulario.value.foto,
-        this.formulario.value.ruta,
+      const url = await this.storage.subirArchivo(
+        this.formulario.value.foto!,
+        // this.formulario.value.ruta,
       );
 
-      this.error.set(error);
+      if (!url) {
+        this.error.set('Error al subir la imagen');
+      }
     }
   }
 }

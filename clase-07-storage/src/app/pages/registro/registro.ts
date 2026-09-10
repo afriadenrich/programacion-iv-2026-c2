@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { Auth } from '../../services/auth.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import IUsuario, { ICrearUsuario } from '../../interfaces/Usuario';
+import { StorageService } from '../../services/storage-service';
+import { DbService } from '../../services/db.service';
 
 @Component({
   imports: [ReactiveFormsModule],
@@ -11,6 +13,8 @@ import IUsuario, { ICrearUsuario } from '../../interfaces/Usuario';
 })
 export class Registro {
   authS = inject(Auth);
+  storageS = inject(StorageService);
+  dbS = inject(DbService);
 
   formulario = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required]),
@@ -25,9 +29,21 @@ export class Registro {
     }
   }
 
-  accion() {
-    if (this.formulario.valid) {
-      this.authS.registrar(this.formulario.value as ICrearUsuario);
+  async accion() {
+    if (this.formulario.valid && this.formulario.value.foto) {
+      const imagenURL = await this.storageS.subirArchivo(this.formulario.value.foto);
+      if (imagenURL) {
+        const { data, error } = await this.authS.registrar(
+          this.formulario.value as ICrearUsuario,
+          imagenURL,
+        );
+
+        if (!error && data.user) {
+          this.dbS.crearRegistroUsuario(data.user.id);
+        }
+      } else {
+        // mostrar error
+      }
     }
   }
 }

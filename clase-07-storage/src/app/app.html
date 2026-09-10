@@ -5,6 +5,7 @@
   @if (auth.usuarioActual()) {
     <button routerLink="home">Home</button>
     <button routerLink="perfil">Perfil</button>
+    <span>{{ auth.usuarioActual()?.email }}</span>
     <button (click)="auth.cerrarSesion()">Cerrar sesión</button>
   } @else {
     <button routerLink="registro">Registro</button>

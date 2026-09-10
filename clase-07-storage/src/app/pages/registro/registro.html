@@ -1,12 +1,18 @@
-<form>
+<form [formGroup]="formulario" (submit)="accion()">
   <h2>Registro</h2>
   <div>
     <label for="email">Email</label>
-    <input type="email" name="email" id="email" formControlName="email" />
+    <input type="email" name="email" id="email" formControlName="email" autocomplete="email" />
   </div>
   <div>
     <label for="password">Contraseña</label>
-    <input type="password" name="password" id="password" formControlName="password" />
+    <input
+      type="password"
+      name="password"
+      id="password"
+      formControlName="password"
+      autocomplete="new-password"
+    />
   </div>
   <div>
     <label for="foto-perfil">Foto</label>
