@@ -1,0 +1,7 @@
+<main>
+  <!-- Transform the company name to title-case and
+       transform the purchasedOn date to a locale-formatted string -->
+  <h1>Purchases from {{ company | titlecase }} on {{ purchasedOn | date }}</h1>
+  <!-- Transform the amount to a currency-formatted string -->
+  <p>Total: {{ amount | currency }}</p>
+</main>
