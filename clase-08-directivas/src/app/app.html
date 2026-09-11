@@ -1,0 +1,16 @@
+
+<p [style.color]="esRojo() ? '#f00' : '#000'" [class.negrita]="esNegrita()" appHighlight>
+<!-- <p [class.rojo]="esRojo()" [class.negrita]="esNegrita()"> -->
+  Este texto tiene clases que dependen de booleanos
+</p>
+
+<button appHighlight color="#00f" (click)="esNegrita.set(!esNegrita())">Cambiar peso</button>
+<button (click)="esRojo.set(!esRojo())">Cambiar color</button>
+
+<hr >
+
+@for (item of [1,2,3]; track $index) {
+  <div >
+    <p>{{item}}</p>
+  </div>
+}
