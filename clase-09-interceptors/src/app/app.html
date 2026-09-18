@@ -1,0 +1,12 @@
+<h1>Interceptors</h1>
+
+<input type="date" [(ngModel)]="fecha" />
+
+<button (click)="traer()">Traer</button>
+
+<hr />
+@if (loadingService.imagenCargando()) {
+  <img src="loading.gif" width="250" />
+} @else {
+  <img [src]="imagen()" width="250" />
+}
