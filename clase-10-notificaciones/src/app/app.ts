@@ -13,14 +13,16 @@ export class App {
   supabaseService = inject(SupabaseService);
 
   // Suscribira a recibir notificaciones
-  registrar() {
+  async registrar() {
     if (!this.swPushService.isEnabled) {
       console.log('SW no está encendido');
       return;
     }
 
-    this.swPushService.requestSubscription({
+    const subscripcion: PushSubscription = await this.swPushService.requestSubscription({
       serverPublicKey: environment.PUBLIC_VAPID,
     });
+
+    console.log(subscripcion);
   }
 }
