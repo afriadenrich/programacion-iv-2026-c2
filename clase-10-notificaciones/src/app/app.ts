@@ -19,10 +19,12 @@ export class App {
       return;
     }
 
-    const subscripcion: PushSubscription = await this.swPushService.requestSubscription({
+    const subscription: PushSubscription = await this.swPushService.requestSubscription({
       serverPublicKey: environment.PUBLIC_VAPID,
     });
 
-    console.log(subscripcion);
+    const json = subscription.toJSON();
+
+    console.log(json);
   }
 }
