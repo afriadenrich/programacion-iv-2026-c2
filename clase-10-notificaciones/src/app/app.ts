@@ -29,7 +29,9 @@ export class App {
     const auth = subscription.getKey('auth');
     const p256dh = subscription.getKey('p256dh');
 
-    const { data, error } = await this.supabaseService.From('Suscripciones_Notificaciones').insert({
+    const { data, error } = await this.supabaseService.Sup.from(
+      'Suscripciones_Notificaciones',
+    ).insert({
       endpoint: json.endpoint,
       auth: json.keys?.['auth'],
       p256dh: json.keys?.['p256dh'],

@@ -20,8 +20,4 @@ export class SupabaseService {
   public get Auth() {
     return this.sup.auth;
   }
-
-  public get From() {
-    return this.sup.from;
-  }
 }
