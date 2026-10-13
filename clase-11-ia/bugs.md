@@ -1,0 +1,6 @@
+- No se puede jugar al mayor menor porque no hay botones. listo
+- La trivia no termina ni envía resultados - listo
+- La batalla naval no coloca barcos de mi lado
+- La batalla naval no termina nunca
+- La batalla naval no registra los hundidos ni los golpeados
+- guard login no chequea correctamente

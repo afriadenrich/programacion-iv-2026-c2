@@ -73,10 +73,9 @@ import { NotificationService } from '../../../services/notification.service';
               <div class="flex justify-center">
                 @if (game.nextCard()) {
                   <div
-                    class="bg-primary-100 border-4 border-primary-400 rounded-lg p-8 w-32 h-48 flex flex-col items-center justify-center shadow-lg animate-bounce"
+                    class="bg-gradient-to-br from-primary-600 to-primary-800 border-4 border-primary-400 rounded-lg p-8 w-32 h-48 flex flex-col items-center justify-center shadow-lg"
                   >
-                    <p class="text-6xl font-bold text-primary-600">{{ game.nextCard()!.rank }}</p>
-                    <p class="text-4xl mt-4">{{ game.nextCard()!.suit }}</p>
+                    <p class="text-4xl font-bold text-white">🂠</p>
                   </div>
                 } @else {
                   <div

@@ -10,22 +10,22 @@ import Toastify from 'toastify-js';
   imports: [ReactiveFormsModule, RouterLink],
   template: `
     <div
-      class="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8"
+      class="min-h-screen flex items-center justify-center bg-background py-12 px-4 sm:px-6 lg:px-8"
     >
       <div class="max-w-md w-full bg-white rounded-lg shadow-md p-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Login</h2>
+        <h2 class="text-2xl font-bold text-dark mb-6 text-center">Login</h2>
 
         <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
           <!-- Email or Username -->
           <div>
-            <label for="emailOrUsername" class="block text-sm font-medium text-gray-700">
+            <label for="emailOrUsername" class="block text-sm font-medium text-dark">
               Email or Username
             </label>
             <input
               type="text"
               id="emailOrUsername"
               formControlName="emailOrUsername"
-              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+              class="mt-1 block w-full px-3 py-2 border border-dark/30 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-dark bg-white placeholder-dark/50"
               [class.border-red-500]="isFieldInvalid('emailOrUsername')"
               placeholder="Enter your email or username"
             />
@@ -36,12 +36,12 @@ import Toastify from 'toastify-js';
 
           <!-- Password -->
           <div>
-            <label for="password" class="block text-sm font-medium text-gray-700"> Password </label>
+            <label for="password" class="block text-sm font-medium text-dark"> Password </label>
             <input
               type="password"
               id="password"
               formControlName="password"
-              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+              class="mt-1 block w-full px-3 py-2 border border-dark/30 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-dark bg-white placeholder-dark/50"
               [class.border-red-500]="isFieldInvalid('password')"
               placeholder="Enter your password"
             />
@@ -54,16 +54,16 @@ import Toastify from 'toastify-js';
           <button
             type="submit"
             [disabled]="form.invalid || isLoading()"
-            class="w-full bg-primary-600 hover:bg-primary-700 disabled:bg-gray-400 text-white font-bold py-2 px-4 rounded-md transition duration-200"
+            class="w-full bg-primary hover:bg-primary/90 disabled:bg-dark/50 text-white font-bold py-2 px-4 rounded-md transition duration-200"
           >
             {{ isLoading() ? 'Logging in...' : 'Login' }}
           </button>
         </form>
 
         <!-- Register Link -->
-        <p class="mt-4 text-center text-gray-600">
+        <p class="mt-4 text-center text-dark">
           Don't have an account?
-          <a routerLink="/register" class="text-primary-600 hover:text-primary-700 font-medium">
+          <a routerLink="/register" class="text-primary hover:text-primary/80 font-medium">
             Register here
           </a>
         </p>

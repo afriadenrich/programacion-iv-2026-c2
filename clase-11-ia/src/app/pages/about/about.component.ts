@@ -16,18 +16,16 @@ interface GitHubUser {
 @Component({
   selector: 'app-about',
   template: `
-    <div
-      class="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8"
-    >
+    <div class="min-h-screen bg-background py-12 px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto">
-        <h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">About the Creator</h1>
+        <h1 class="text-4xl font-bold text-dark mb-8 text-center">About the Creator</h1>
 
         @if (isLoading()) {
           <div class="text-center py-12">
             <div
-              class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"
+              class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary"
             ></div>
-            <p class="mt-4 text-gray-600">Loading profile...</p>
+            <p class="mt-4 text-dark/70">Loading profile...</p>
           </div>
         }
 
@@ -36,7 +34,7 @@ interface GitHubUser {
             <p class="text-red-700 mb-4">{{ error() }}</p>
             <button
               (click)="loadGitHubProfile()"
-              class="px-6 py-2 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-colors"
+              class="px-6 py-2 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors"
             >
               Try Again
             </button>
@@ -46,7 +44,7 @@ interface GitHubUser {
         @if (profile() && !isLoading()) {
           <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <!-- Profile Header -->
-            <div class="bg-gradient-to-r from-indigo-600 to-blue-600 h-32"></div>
+            <div class="bg-gradient-to-r from-primary to-secondary h-32"></div>
 
             <!-- Profile Content -->
             <div class="px-6 pb-6">
@@ -61,24 +59,24 @@ interface GitHubUser {
 
               <!-- User Info -->
               <div class="text-center mb-6">
-                <h2 class="text-3xl font-bold text-gray-900">{{ profile()!.name }}</h2>
-                <p class="text-indigo-600 font-semibold mb-2">@{{ profile()!.login }}</p>
-                <p class="text-gray-600">{{ profile()!.bio }}</p>
+                <h2 class="text-3xl font-bold text-dark">{{ profile()!.name }}</h2>
+                <p class="text-primary font-semibold mb-2">@{{ profile()!.login }}</p>
+                <p class="text-dark/70">{{ profile()!.bio }}</p>
               </div>
 
               <!-- Stats -->
-              <div class="grid grid-cols-3 gap-4 mb-6 py-6 border-y border-gray-200">
+              <div class="grid grid-cols-3 gap-4 mb-6 py-6 border-y border-dark/10">
                 <div class="text-center">
-                  <p class="text-2xl font-bold text-indigo-600">{{ profile()!.public_repos }}</p>
-                  <p class="text-sm text-gray-600">Repositories</p>
+                  <p class="text-2xl font-bold text-primary">{{ profile()!.public_repos }}</p>
+                  <p class="text-sm text-dark/70">Repositories</p>
                 </div>
                 <div class="text-center">
-                  <p class="text-2xl font-bold text-indigo-600">{{ profile()!.followers }}</p>
-                  <p class="text-sm text-gray-600">Followers</p>
+                  <p class="text-2xl font-bold text-primary">{{ profile()!.followers }}</p>
+                  <p class="text-sm text-dark/70">Followers</p>
                 </div>
                 <div class="text-center">
-                  <p class="text-2xl font-bold text-indigo-600">{{ profile()!.following }}</p>
-                  <p class="text-sm text-gray-600">Following</p>
+                  <p class="text-2xl font-bold text-primary">{{ profile()!.following }}</p>
+                  <p class="text-sm text-dark/70">Following</p>
                 </div>
               </div>
 
@@ -88,7 +86,7 @@ interface GitHubUser {
                   [href]="profile()!.html_url"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-colors"
+                  class="inline-block px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors"
                   aria-label="Visit GitHub profile"
                 >
                   Visit GitHub Profile
@@ -99,12 +97,12 @@ interface GitHubUser {
 
           <!-- About the Platform -->
           <div class="bg-white rounded-lg shadow-lg p-6 mt-8">
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">About This Platform</h3>
-            <p class="text-gray-600 mb-4">
+            <h3 class="text-2xl font-bold text-dark mb-4">About This Platform</h3>
+            <p class="text-dark/70 mb-4">
               This gaming platform was built with Angular 22 and Supabase to provide an engaging
               experience with multiple games, real-time chat, and competitive rankings.
             </p>
-            <p class="text-gray-600">
+            <p class="text-dark/70">
               Features include four unique games, user authentication, game result tracking, and a
               global chat system. The platform emphasizes responsive design, accessibility, and
               secure data handling.

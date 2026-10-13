@@ -15,11 +15,11 @@ import { signal } from '@angular/core';
 @Component({
   selector: 'app-chat',
   template: `
-    <div class="flex flex-col h-screen bg-gray-100">
+    <div class="flex flex-col h-screen bg-background">
       <!-- Header -->
-      <div class="bg-indigo-600 text-white p-4 shadow-md">
+      <div class="bg-primary text-white p-4 shadow-md">
         <h1 class="text-2xl font-bold">Global Chat</h1>
-        <p class="text-sm text-indigo-100">Connect with other players</p>
+        <p class="text-sm text-white/80">Connect with other players</p>
       </div>
 
       <!-- Messages Container -->
@@ -27,47 +27,47 @@ import { signal } from '@angular/core';
         @if (chatService.isLoading()) {
           <div class="text-center py-8">
             <div
-              class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"
+              class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"
             ></div>
-            <p class="mt-2 text-gray-600">Loading messages...</p>
+            <p class="mt-2 text-dark/70">Loading messages...</p>
           </div>
         }
 
         @if (!chatService.isLoading() && chatService.messages().length === 0) {
           <div class="text-center py-12">
-            <p class="text-gray-500">No messages yet. Start the conversation!</p>
+            <p class="text-dark/60">No messages yet. Start the conversation!</p>
           </div>
         }
 
         @for (message of chatService.messages(); track message.id) {
           <div class="bg-white rounded-lg p-4 shadow-sm">
             <div class="flex justify-between items-start mb-2">
-              <h3 class="font-semibold text-gray-900">{{ message.username }}</h3>
-              <span class="text-xs text-gray-500">{{
+              <h3 class="font-semibold text-dark">{{ message.username }}</h3>
+              <span class="text-xs text-dark/50">{{
                 chatService.formatTimestamp(message.created_at)
               }}</span>
             </div>
-            <p class="text-gray-700 break-words">{{ message.content }}</p>
+            <p class="text-dark/80 break-words">{{ message.content }}</p>
           </div>
         }
       </div>
 
       <!-- Message Input -->
-      <div class="bg-white border-t border-gray-200 p-4">
+      <div class="bg-white border-t border-dark/20 p-4">
         <form (ngSubmit)="sendMessage()" class="flex gap-2">
           <input
             [(ngModel)]="messageText"
             name="message"
             type="text"
             placeholder="Type your message..."
-            class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
+            class="flex-1 px-4 py-2 border border-dark/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-dark bg-white placeholder-dark/50"
             [disabled]="chatService.isSending()"
             aria-label="Message input"
           />
           <button
             type="submit"
             [disabled]="chatService.isSending() || !messageText.trim()"
-            class="px-6 py-2 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            class="px-6 py-2 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             {{ chatService.isSending() ? 'Sending...' : 'Send' }}
           </button>

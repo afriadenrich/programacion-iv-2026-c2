@@ -14,17 +14,15 @@ interface GameCard {
 @Component({
   selector: 'app-home',
   template: `
-    <div
-      class="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8"
-    >
+    <div class="min-h-screen bg-background py-12 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
         <!-- Welcome Section -->
         <div class="text-center mb-16">
-          <h1 class="text-5xl font-bold text-gray-900 mb-4">
+          <h1 class="text-5xl font-bold text-dark mb-4">
             Welcome, {{ authService.currentUser()?.username }}!
           </h1>
-          <p class="text-xl text-gray-600 mb-2">Choose a game and test your skills</p>
-          <p class="text-gray-500">Compete with other players and climb the rankings</p>
+          <p class="text-xl text-dark/80 mb-2">Choose a game and test your skills</p>
+          <p class="text-dark/60">Compete with other players and climb the rankings</p>
         </div>
 
         <!-- Games Grid -->
@@ -35,11 +33,11 @@ interface GameCard {
             >
               <div class="p-6">
                 <div class="text-4xl mb-4">{{ game.icon }}</div>
-                <h2 class="text-2xl font-bold text-gray-900 mb-2">{{ game.title }}</h2>
-                <p class="text-gray-600 mb-4">{{ game.description }}</p>
+                <h2 class="text-2xl font-bold text-dark mb-2">{{ game.title }}</h2>
+                <p class="text-dark/70 mb-4">{{ game.description }}</p>
                 <a
                   [routerLink]="game.path"
-                  class="inline-block px-6 py-2 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-colors"
+                  class="inline-block px-6 py-2 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors"
                   [attr.aria-label]="'Play ' + game.title"
                 >
                   Play Now
@@ -51,36 +49,36 @@ interface GameCard {
 
         <!-- Quick Links Section -->
         <div class="bg-white rounded-lg shadow-lg p-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6">Quick Links</h2>
+          <h2 class="text-2xl font-bold text-dark mb-6">Quick Links</h2>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <a
               routerLink="/rankings"
-              class="flex items-center p-4 border-2 border-indigo-200 rounded-lg hover:border-indigo-600 hover:bg-indigo-50 transition-all"
+              class="flex items-center p-4 border-2 border-accent rounded-lg hover:border-primary hover:bg-background transition-all"
             >
               <span class="text-3xl mr-4">📊</span>
               <div>
-                <h3 class="font-bold text-gray-900">Rankings</h3>
-                <p class="text-sm text-gray-600">See top players</p>
+                <h3 class="font-bold text-dark">Rankings</h3>
+                <p class="text-sm text-dark/70">See top players</p>
               </div>
             </a>
             <a
               routerLink="/chat"
-              class="flex items-center p-4 border-2 border-indigo-200 rounded-lg hover:border-indigo-600 hover:bg-indigo-50 transition-all"
+              class="flex items-center p-4 border-2 border-accent rounded-lg hover:border-primary hover:bg-background transition-all"
             >
               <span class="text-3xl mr-4">💬</span>
               <div>
-                <h3 class="font-bold text-gray-900">Chat</h3>
-                <p class="text-sm text-gray-600">Connect with players</p>
+                <h3 class="font-bold text-dark">Chat</h3>
+                <p class="text-sm text-dark/70">Connect with players</p>
               </div>
             </a>
             <a
               routerLink="/about"
-              class="flex items-center p-4 border-2 border-indigo-200 rounded-lg hover:border-indigo-600 hover:bg-indigo-50 transition-all"
+              class="flex items-center p-4 border-2 border-accent rounded-lg hover:border-primary hover:bg-background transition-all"
             >
               <span class="text-3xl mr-4">👤</span>
               <div>
-                <h3 class="font-bold text-gray-900">About</h3>
-                <p class="text-sm text-gray-600">Meet the creator</p>
+                <h3 class="font-bold text-dark">About</h3>
+                <p class="text-sm text-dark/70">Meet the creator</p>
               </div>
             </a>
           </div>

@@ -8,8 +8,27 @@
   box-sizing: border-box;
 }
 
-body {
-  @apply bg-gray-50 text-gray-900 font-sans;
+@layer base {
+  body {
+    @apply bg-background text-dark font-sans;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-dark;
+  }
+
+  button {
+    @apply transition-colors duration-200;
+  }
+
+  a {
+    @apply text-primary hover:text-primary/80 transition-colors;
+  }
 }
 
 html,

@@ -28,7 +28,7 @@ export class HigherLowerService {
 
   isGameOver = computed(() => this.lives() === 0);
   canGuess = computed(
-    () => !this.isGameOver() && this.currentCard() !== null && this.nextCard() === null,
+    () => !this.isGameOver() && this.currentCard() !== null && this.nextCard() !== null,
   );
 
   private getCardDeck(): Card[] {

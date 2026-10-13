@@ -5,21 +5,19 @@ import { RankingsService } from '../../services/rankings.service';
 @Component({
   selector: 'app-rankings',
   template: `
-    <div
-      class="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8"
-    >
+    <div class="min-h-screen bg-background py-12 px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto">
-        <h1 class="text-4xl font-bold text-gray-900 mb-8 text-center">Rankings</h1>
+        <h1 class="text-4xl font-bold text-dark mb-8 text-center">Rankings</h1>
 
         <!-- Game Selection -->
         <div class="mb-8 flex justify-center gap-4 flex-wrap">
           @for (game of rankingsService.getAvailableGames(); track game.id) {
             <button
               (click)="selectGame(game.id)"
-              [class.bg-indigo-600]="rankingsService.selectedGame() === game.id"
-              [class.bg-gray-300]="rankingsService.selectedGame() !== game.id"
+              [class.bg-primary]="rankingsService.selectedGame() === game.id"
+              [class.bg-accent]="rankingsService.selectedGame() !== game.id"
               [class.text-white]="rankingsService.selectedGame() === game.id"
-              [class.text-gray-800]="rankingsService.selectedGame() !== game.id"
+              [class.text-dark]="rankingsService.selectedGame() !== game.id"
               class="px-6 py-2 rounded-lg font-semibold transition-colors duration-200"
               [attr.aria-pressed]="rankingsService.selectedGame() === game.id"
             >
@@ -32,9 +30,9 @@ import { RankingsService } from '../../services/rankings.service';
         @if (rankingsService.isLoading()) {
           <div class="text-center py-12">
             <div
-              class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"
+              class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary"
             ></div>
-            <p class="mt-4 text-gray-600">Loading rankings...</p>
+            <p class="mt-4 text-dark/70">Loading rankings...</p>
           </div>
         }
 
@@ -42,7 +40,7 @@ import { RankingsService } from '../../services/rankings.service';
         @if (!rankingsService.isLoading() && rankingsService.rankings().length > 0) {
           <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <table class="w-full" role="table" aria-label="Top 10 rankings">
-              <thead class="bg-indigo-600 text-white">
+              <thead class="bg-primary text-white">
                 <tr>
                   <th class="px-6 py-3 text-left text-sm font-semibold">Rank</th>
                   <th class="px-6 py-3 text-left text-sm font-semibold">Player</th>
@@ -50,13 +48,13 @@ import { RankingsService } from '../../services/rankings.service';
                   <th class="px-6 py-3 text-left text-sm font-semibold">{{ getMetricLabel() }}</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-gray-200">
+              <tbody class="divide-y divide-dark/10">
                 @for (entry of rankingsService.rankings(); track entry.username) {
-                  <tr class="hover:bg-gray-50 transition-colors">
-                    <td class="px-6 py-4 text-sm font-bold text-indigo-600">{{ entry.rank }}</td>
-                    <td class="px-6 py-4 text-sm text-gray-900">{{ entry.username }}</td>
-                    <td class="px-6 py-4 text-sm text-gray-700">{{ entry.score }}</td>
-                    <td class="px-6 py-4 text-sm text-gray-700">{{ entry.gameSpecificMetric }}</td>
+                  <tr class="hover:bg-background transition-colors">
+                    <td class="px-6 py-4 text-sm font-bold text-primary">{{ entry.rank }}</td>
+                    <td class="px-6 py-4 text-sm text-dark">{{ entry.username }}</td>
+                    <td class="px-6 py-4 text-sm text-dark/80">{{ entry.score }}</td>
+                    <td class="px-6 py-4 text-sm text-dark/80">{{ entry.gameSpecificMetric }}</td>
                   </tr>
                 }
               </tbody>
@@ -67,9 +65,7 @@ import { RankingsService } from '../../services/rankings.service';
         <!-- Empty State -->
         @if (!rankingsService.isLoading() && rankingsService.rankings().length === 0) {
           <div class="bg-white rounded-lg shadow-lg p-12 text-center">
-            <p class="text-gray-500 text-lg">
-              No results yet for this game. Play and be the first!
-            </p>
+            <p class="text-dark/60 text-lg">No results yet for this game. Play and be the first!</p>
           </div>
         }
       </div>

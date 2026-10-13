@@ -97,14 +97,16 @@ import { NotificationService } from '../../../services/notification.service';
                 </div>
 
                 <!-- Next Button -->
-                @if (trivia.answeredQuestions() < 19) {
-                  <button
-                    (click)="nextQuestion()"
-                    class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-lg transition"
-                  >
+                <button
+                  (click)="nextQuestion()"
+                  class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 rounded-lg transition"
+                >
+                  @if (trivia.answeredQuestions() < 20) {
                     Next Question
-                  </button>
-                }
+                  } @else {
+                    Finish Game
+                  }
+                </button>
               }
             }
           }
@@ -197,6 +199,7 @@ export class TriviaComponent extends BaseGameComponent implements OnInit {
 
   protected override onTimeUp() {
     super.onTimeUp();
+    this.trivia.answeredQuestions.set(20); // Force game to complete
     if (!this.gameAlreadySaved) {
       this.saveResult();
     }

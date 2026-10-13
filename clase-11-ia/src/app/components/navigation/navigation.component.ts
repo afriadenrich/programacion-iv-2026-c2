@@ -7,7 +7,7 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [RouterLink, RouterLinkActive],
   template: `
-    <nav class="bg-primary-600 text-white shadow-lg">
+    <nav class="bg-primary text-white shadow-lg">
       <div class="container mx-auto px-4 py-4">
         <div class="flex justify-between items-center">
           <!-- Logo -->
@@ -20,36 +20,36 @@ import { AuthService } from '../../services/auth.service';
             @if (isAuthenticated()) {
               <a
                 routerLink="/home"
-                routerLinkActive="text-secondary-400"
-                class="hover:text-secondary-200 transition"
+                routerLinkActive="text-secondary"
+                class="hover:text-secondary transition"
               >
                 Home
               </a>
               <a
                 routerLink="/games"
-                routerLinkActive="text-secondary-400"
-                class="hover:text-secondary-200 transition"
+                routerLinkActive="text-secondary"
+                class="hover:text-secondary transition"
               >
                 Games
               </a>
               <a
                 routerLink="/rankings"
-                routerLinkActive="text-secondary-400"
-                class="hover:text-secondary-200 transition"
+                routerLinkActive="text-secondary"
+                class="hover:text-secondary transition"
               >
                 Rankings
               </a>
               <a
                 routerLink="/chat"
-                routerLinkActive="text-secondary-400"
-                class="hover:text-secondary-200 transition"
+                routerLinkActive="text-secondary"
+                class="hover:text-secondary transition"
               >
                 Chat
               </a>
               <a
                 routerLink="/about"
-                routerLinkActive="text-secondary-400"
-                class="hover:text-secondary-200 transition"
+                routerLinkActive="text-secondary"
+                class="hover:text-secondary transition"
               >
                 About
               </a>
@@ -58,7 +58,7 @@ import { AuthService } from '../../services/auth.service';
                 <span class="text-sm">{{ currentUsername() }}</span>
                 <button
                   (click)="logout()"
-                  class="bg-secondary-600 hover:bg-secondary-700 px-4 py-2 rounded transition"
+                  class="bg-secondary hover:bg-accent px-4 py-2 rounded transition text-dark font-semibold"
                 >
                   Logout
                 </button>
@@ -66,15 +66,15 @@ import { AuthService } from '../../services/auth.service';
             } @else {
               <a
                 routerLink="/login"
-                routerLinkActive="text-secondary-400"
-                class="hover:text-secondary-200 transition"
+                routerLinkActive="text-secondary"
+                class="hover:text-secondary transition"
               >
                 Login
               </a>
               <a
                 routerLink="/register"
-                routerLinkActive="text-secondary-400"
-                class="hover:text-secondary-200 transition"
+                routerLinkActive="text-secondary"
+                class="hover:text-secondary transition"
               >
                 Register
               </a>
@@ -97,46 +97,52 @@ import { AuthService } from '../../services/auth.service';
         @if (mobileMenuOpen()) {
           <div class="md:hidden mt-4 pb-4 space-y-2">
             @if (isAuthenticated()) {
-              <a routerLink="/home" class="block px-4 py-2 hover:bg-primary-500 rounded transition">
+              <a
+                routerLink="/home"
+                class="block px-4 py-2 hover:bg-accent rounded transition text-dark"
+              >
                 Home
               </a>
               <a
                 routerLink="/games"
-                class="block px-4 py-2 hover:bg-primary-500 rounded transition"
+                class="block px-4 py-2 hover:bg-accent rounded transition text-dark"
               >
                 Games
               </a>
               <a
                 routerLink="/rankings"
-                class="block px-4 py-2 hover:bg-primary-500 rounded transition"
+                class="block px-4 py-2 hover:bg-accent rounded transition text-dark"
               >
                 Rankings
               </a>
-              <a routerLink="/chat" class="block px-4 py-2 hover:bg-primary-500 rounded transition">
+              <a
+                routerLink="/chat"
+                class="block px-4 py-2 hover:bg-accent rounded transition text-dark"
+              >
                 Chat
               </a>
               <a
                 routerLink="/about"
-                class="block px-4 py-2 hover:bg-primary-500 rounded transition"
+                class="block px-4 py-2 hover:bg-accent rounded transition text-dark"
               >
                 About
               </a>
               <button
                 (click)="logout()"
-                class="w-full text-left px-4 py-2 bg-secondary-600 hover:bg-secondary-700 rounded transition"
+                class="w-full text-left px-4 py-2 bg-secondary hover:bg-accent rounded transition text-dark font-semibold"
               >
                 Logout
               </button>
             } @else {
               <a
                 routerLink="/login"
-                class="block px-4 py-2 hover:bg-primary-500 rounded transition"
+                class="block px-4 py-2 hover:bg-accent rounded transition text-dark"
               >
                 Login
               </a>
               <a
                 routerLink="/register"
-                class="block px-4 py-2 hover:bg-primary-500 rounded transition"
+                class="block px-4 py-2 hover:bg-accent rounded transition text-dark"
               >
                 Register
               </a>
