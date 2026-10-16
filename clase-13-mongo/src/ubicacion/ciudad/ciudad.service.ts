@@ -10,14 +10,7 @@ export class CiudadService {
   constructor(@InjectModel(Ciudad.name) private ciudadModel: Model<Ciudad>) {}
 
   async create(createCiudadDto: CreateCiudadDto) {
-    const ciudad = new this.ciudadModel({
-      name: 'Avellaneda',
-      province: 'BsAs',
-      coords: {
-        x: -10000,
-        y: 33,
-      },
-    });
+    const ciudad = new this.ciudadModel(createCiudadDto);
 
     return await ciudad.save();
   }
@@ -31,7 +24,7 @@ export class CiudadService {
   }
 
   async update(id: string, updateCiudadDto: UpdateCiudadDto) {
-    return await this.ciudadModel.findByIdAndUpdate(id, { name: 'Lanús' });
+    return await this.ciudadModel.findByIdAndUpdate(id, updateCiudadDto);
   }
 
   async remove(id: string) {
