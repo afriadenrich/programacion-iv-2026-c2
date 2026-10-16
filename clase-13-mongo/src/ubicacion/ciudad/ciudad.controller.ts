@@ -8,8 +8,8 @@ import {
   Delete,
 } from '@nestjs/common';
 import { CiudadService } from './ciudad.service.js';
-import { CreateCiudadDto } from '../dto/create-ciudad.dto.js';
-import { UpdateCiudadDto } from '../dto/update-ciudad.dto.js';
+import { CreateCiudadDto } from './dto/create-ciudad.dto.js';
+import { UpdateCiudadDto } from './dto/update-ciudad.dto.js';
 
 @Controller('ciudad')
 export class CiudadController {

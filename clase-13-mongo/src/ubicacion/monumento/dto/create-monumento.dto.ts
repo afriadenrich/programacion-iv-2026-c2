@@ -1,1 +1,4 @@
-export class CreateMonumentoDto {}
+export class CreateMonumentoDto {
+  nombre: string;
+  ciudadId: string;
+}

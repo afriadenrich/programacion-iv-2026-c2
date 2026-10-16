@@ -3,12 +3,13 @@ import {
   Controller,
   Delete,
   Get,
-  Inject,
   Param,
   Patch,
   Post,
 } from '@nestjs/common';
 import { MonumentoService } from './monumento.service.js';
+import { CreateMonumentoDto } from './dto/create-monumento.dto.js';
+import { UpdateMonumentoDto } from './dto/update-monumento.dto.js';
 
 @Controller('monumento')
 export class MonumentoController {

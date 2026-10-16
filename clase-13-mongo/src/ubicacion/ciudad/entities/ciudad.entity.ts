@@ -1,4 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Monumento } from '../../monumento/entities/monumento.entity.js';
+import { Types } from 'mongoose';
 // import mongoose from 'mongoose';
 
 class Coords {
@@ -17,8 +19,8 @@ export class Ciudad {
   @Prop()
   coords: Coords;
 
-  // @Prop()
-  // monumentos: Monumento[];
+  @Prop({ type: [Types.ObjectId], ref: 'Monumento' })
+  monumentos: Types.ObjectId[];
 }
 
 export const CiudadSchema = SchemaFactory.createForClass(Ciudad);

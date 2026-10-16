@@ -1,17 +1,49 @@
 import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { InjectConnection, InjectModel } from '@nestjs/mongoose';
+import mongoose, { Model, mongo, Types } from 'mongoose';
 import { CreateMonumentoDto } from './dto/create-monumento.dto.js';
 import { UpdateMonumentoDto } from './dto/update-monumento.dto.js';
+import { Monumento } from './entities/monumento.entity.js';
+import { Ciudad } from '../ciudad/entities/ciudad.entity.js';
 
 @Injectable()
 export class MonumentoService {
   constructor(
     @InjectModel(Monumento.name) private monumentoModel: Model<Monumento>,
+    @InjectModel(Ciudad.name) private ciudadModel: Model<Ciudad>,
+    @InjectConnection() private readonly connection: mongoose.Connection,
   ) {}
 
   async create(createMonumentoDto: CreateMonumentoDto) {
-    const monumento = new this.monumentoModel(createMonumentoDto);
+    // const session = await this.connection.startSession();
+    // session.startTransaction();
+
+    const ciudadId = new Types.ObjectId(createMonumentoDto.ciudadId);
+
+    // Generar el documento de el monumento
+    const monumento = new this.monumentoModel({
+      nombre: createMonumentoDto.nombre,
+      ciudad: ciudadId,
+    });
+
+    // Chequear que la ciudad recibida exista
+    const ciudad = await this.ciudadModel.findById(createMonumentoDto.ciudadId);
+    // .session(session);
+
+    if (!ciudad) {
+      // session.abortTransaction();
+      // session.endSession();
+      return { mensaje: 'error' };
+    }
+
+    // Agregar al array de la ciudad el _id del monumento nuevo
+    ciudad?.monumentos.push(monumento._id);
+
+    // guardar ambos
+    ciudad?.save(/*{ session } */);
+    await monumento.save(/*{ session } */);
+
+    // session.commitTransaction();
 
     return await monumento.save();
   }

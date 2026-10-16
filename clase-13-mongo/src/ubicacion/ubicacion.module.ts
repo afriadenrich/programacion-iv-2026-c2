@@ -5,6 +5,10 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { Ciudad, CiudadSchema } from './ciudad/entities/ciudad.entity.js';
 import { MonumentoController } from './monumento/monumento.controller.js';
 import { MonumentoService } from './monumento/monumento.service.js';
+import {
+  MonumentoSchema,
+  Monumento,
+} from './monumento/entities/monumento.entity.js';
 
 @Module({
   imports: [
@@ -12,6 +16,10 @@ import { MonumentoService } from './monumento/monumento.service.js';
       {
         schema: CiudadSchema,
         name: Ciudad.name, // "Ciudad"
+      },
+      {
+        schema: MonumentoSchema,
+        name: Monumento.name, // "Monumento"
       },
     ]),
   ],
