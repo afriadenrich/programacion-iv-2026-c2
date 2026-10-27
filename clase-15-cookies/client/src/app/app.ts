@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class App {
 
   Registrarse() {
     this.http
-      .post('http://localhost:3000/auth/registro', { user: 'HOLA' })
+      .post(`${environment.API_URL}/auth/registro`, { user: 'HOLA' })
       .subscribe((data: any) => {
         const token = data.token;
 
@@ -21,14 +22,14 @@ export class App {
       });
   }
   Login() {
-    this.http.post('http://localhost:3000/auth/login', { user: 'HOLA' }).subscribe((data: any) => {
+    this.http.post(`${environment.API_URL}/auth/login`, { user: 'HOLA' }).subscribe((data: any) => {
       const token = data.token;
 
       localStorage.setItem('token', token);
     });
   }
   Traer() {
-    this.http.get('http://localhost:3000/dibujo').subscribe((data) => {
+    this.http.get(`${environment.API_URL}/dibujo`).subscribe((data) => {
       console.log(data);
     });
   }
