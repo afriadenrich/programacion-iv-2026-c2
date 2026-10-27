@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import jwt from 'jsonwebtoken';
 
-const CONTRASEÑA_DEL_SERVER =
-  process.env.CONTRASEÑA_DEL_SERVER || 'ASIGNAR CONTRASEÑA';
+const CONTRASENA_DEL_SERVER =
+  process.env.CONTRASENA_DEL_SERVER || 'ASIGNAR CONTRASENA';
 
 @Injectable()
 export class AuthService {
   registro(body: { user: string; pass: string }) {
     //Revisar que el usuario no exista
-    // Revisar que la contraseña sea segura
-    // Encriptar la contraseña para su guardado
+    // Revisar que la CONTRASENA sea segura
+    // Encriptar la CONTRASENA para su guardado
     // Guardar el usuario en la DB
     // Devolver si fue exitoso o no el registro
     // (normalmente) Genera el tóken
@@ -36,7 +36,7 @@ export class AuthService {
       //   iss: "MI SERVER"
     };
 
-    const token = jwt.sign(payload, CONTRASEÑA_DEL_SERVER, {
+    const token = jwt.sign(payload, CONTRASENA_DEL_SERVER, {
       issuer: 'MI SERVER',
     });
 

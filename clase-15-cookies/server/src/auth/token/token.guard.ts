@@ -8,8 +8,8 @@ import { Request } from 'express';
 import jwt from 'jsonwebtoken';
 import { Observable } from 'rxjs';
 
-const CONTRASEÑA_DEL_SERVER =
-  process.env.CONTRASEÑA_DEL_SERVER || 'ASIGNAR CONTRASEÑA';
+const CONTRASENA_DEL_SERVER =
+  process.env.CONTRASENA_DEL_SERVER || 'ASIGNAR CONTRASENA';
 
 @Injectable()
 export class TokenGuard implements CanActivate {
@@ -36,7 +36,7 @@ export class TokenGuard implements CanActivate {
     if (!token) return false;
 
     try {
-      const payloadValidada = jwt.verify(token, CONTRASEÑA_DEL_SERVER);
+      const payloadValidada = jwt.verify(token, CONTRASENA_DEL_SERVER);
 
       console.log(payloadValidada);
 
