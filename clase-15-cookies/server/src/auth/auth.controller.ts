@@ -13,7 +13,9 @@ export class AuthController {
   ) {
     const token = this.authService.registro(body);
 
-    response.cookie('token', token);
+    response.cookie('token', token, {
+      sameSite: 'none',
+    });
     response.send({ token });
   }
 
@@ -26,7 +28,7 @@ export class AuthController {
 
     response.cookie('token', token, {
       httpOnly: true,
-      sameSite: 'strict',
+      sameSite: 'none',
       secure: true,
       expires: new Date(Date.now() + 1000 * 60 * 15),
     });
