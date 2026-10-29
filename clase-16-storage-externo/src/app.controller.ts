@@ -13,7 +13,9 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Post()
-  @UseInterceptors(FileInterceptor('imagen'))
+  @UseInterceptors(
+    FileInterceptor('imagen', { limits: { fileSize: 1024 * 1024 * 2 } }),
+  )
   async subirImagen(@UploadedFile() archivo: Express.Multer.File) {
     console.log(archivo);
     return this.appService.subirArchivo(archivo);
