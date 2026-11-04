@@ -52,6 +52,10 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
     @MessageBody() sala: string,
     @ConnectedSocket() cliente: Socket,
   ) {
+    cliente.rooms.forEach((room) => {
+      cliente.leave(room);
+    });
+
     cliente.join(sala);
   }
 }
