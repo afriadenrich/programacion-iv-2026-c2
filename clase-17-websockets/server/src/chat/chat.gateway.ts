@@ -32,10 +32,26 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
     @MessageBody() mensaje: string,
     @ConnectedSocket() cliente: Socket,
   ) {
-    this.serverWS.sockets.sockets.forEach((c) => {
-      if (c.id !== cliente.id) {
-        c.emit('respuesta', mensaje);
-      }
+    const salasDelCliente: string[] = [];
+    cliente.rooms.forEach((room) => {
+      salasDelCliente.push(room);
     });
+
+    this.serverWS.to(salasDelCliente).emit('respuesta', mensaje);
+
+    // TODOS MENOS YO
+    // this.serverWS.sockets.sockets.forEach((c) => {
+    //   if (c.id !== cliente.id) {
+    //     c.emit('respuesta', mensaje);
+    //   }
+    // });
+  }
+
+  @SubscribeMessage('unirse')
+  onUnirseASala(
+    @MessageBody() sala: string,
+    @ConnectedSocket() cliente: Socket,
+  ) {
+    cliente.join(sala);
   }
 }

@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 export class App {
   mensajes = signal<string[]>([]);
   mensaje = '';
+  sala = '';
 
   cliente: Socket;
 
@@ -22,7 +23,7 @@ export class App {
   }
 
   enviarMensaje() {
-    this.mensajes.update((anterior) => [...anterior, this.mensaje]);
+    // this.mensajes.update((anterior) => [...anterior, this.mensaje]);
 
     // Enviar el evento "enviar" al server
     this.cliente.emit('enviar', this.mensaje);
@@ -35,5 +36,9 @@ export class App {
     this.cliente.on('respuesta', (body: string) => {
       this.mensajes.update((ant) => [...ant, body]);
     });
+  }
+
+  unirseSala() {
+    this.cliente.emit('unirse', this.sala);
   }
 }
