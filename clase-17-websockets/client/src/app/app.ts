@@ -16,7 +16,7 @@ export class App {
 
   constructor() {
     // Conectarme al websocket
-    this.cliente = io('wss://server-websocket-2026.onrender.com');
+    this.cliente = io('wss://server-websocket-2026.onrender.com/');
 
     this.escucharRespuestas();
   }
