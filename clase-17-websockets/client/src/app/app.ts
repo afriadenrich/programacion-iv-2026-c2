@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Socket, io } from 'socket.io-client';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ export class App {
 
   constructor() {
     // Conectarme al websocket
-    this.cliente = io('ws://localhost:3000');
+    this.cliente = io(environment.WS);
 
     this.escucharRespuestas();
   }
