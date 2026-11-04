@@ -12,7 +12,7 @@ import { Server, Socket } from 'socket.io';
 // Por defecto en el mismo puerto del server
 @WebSocketGateway({
   cors: {
-    origin: '*',
+    origin: process.env.WS_ORIGIN || '*',
   },
 })
 export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
