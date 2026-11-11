@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package math;
+
+service MathService {
+    rpc SumarArray (ArrayNumeros) returns (Numero) {}
+    rpc Calculos (ElementosCalculables) returns (Calculados) {}
+    rpc MostrarEnConsola (Nada) returns (Nada) {}
+}
+
+message ArrayNumeros {
+   repeated int32 numeros = 1;
+}
+
+message Numero {
+    int32 numero = 1;
+}
+
+message ElementosCalculables {
+    int32 numero1 = 1;
+    int32 numero2 = 2;
+}
+
+message Calculados {
+    int32 suma = 1;
+    int32 resta = 2;
+    int32 multiplicacion = 3;
+    int32 division = 4;
+}
+
+message Nada {
+
+}
